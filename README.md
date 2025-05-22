@@ -19,7 +19,7 @@ Tired of remembering complex commands? 🧙‍♂️ Zummoner is a Zsh plugin th
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/day50-dev/zummoner.git ~/.zsh/plugins/zummoner
+   git clone https://github.com/day50-dev/zummoner.git $ZSH_CUSTOM/plugins/zummoner
    ```
 
 2. **Activate the Plugin:** Add `zummoner` to your `.zshrc` `plugins` array:
