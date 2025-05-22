@@ -1,6 +1,5 @@
-shell_hook() {
+zummoner() {
   local QUESTION="$BUFFER"
-  local SHELL=$(ps -p $$ -o command= | awk '{print $1}')
   local PROMPT="
   You are an experienced Linux engineer with expertise in all Linux
   commands and their
@@ -8,7 +7,7 @@ shell_hook() {
 
   Given a task, generate a single command or a pipeline
   of commands that accomplish the task efficiently.
-  This command is to be executed in the current shell, $SHELL.
+  This command is to be executed in the current shell, zsh.
   For complex tasks or those requiring multiple
   steps, provide a pipeline of commands.
   Ensure all commands are safe and prefer modern ways. For instance,
@@ -32,24 +31,29 @@ shell_hook() {
   "
   local model=''
 
-  if [[ -r "$HOME/.config/io.datasette.llm/default_model.txt" ]]; then
-    model=$(< $HOME/.config/io.datasette.llm/default_model.txt)
+  if [[ -r "$HOME/$config/io.datasette.llm/default_model.txt" ]]; then
+    model=$(cat "$HOME/$config/io.datasette.llm/default_model.txt")
+  else
+    model=$(llm models default)
   fi
 
   BUFFER="$QUESTION ... $model"
   zle -R
   local response=$(llm "$PROMPT")
   local COMMAND=$(echo "$response" | sed 's/```//g' | tr -d '\n')
-  echo "$(date %s) {$QUESTION | $response}" >> /tmp/shell-hook
+  #echo "$(date %s) {$QUESTION | $response}" >> /tmp/zummoner
   if [[ -n "$COMMAND" ]] ; then
-      BUFFER="$COMMAND"
-      CURSOR=${#BUFFER}
+    BUFFER="$COMMAND"
+    CURSOR=${#BUFFER}
   else
-      BUFFER="$QUESTION ... no results"
+    BUFFER="$QUESTION ... no results"
   fi
 }
 
-zle -N shell_hook
+zle -N zummoner
 
-bindkey '^Xx' shell_hook
-
+if ! bindkey | grep -q "\^Xx"; then
+  bindkey '^Xx' zummoner
+else
+  echo "I'm not going to unbind ^Xx, you'll need to do this yourself"
+fi
