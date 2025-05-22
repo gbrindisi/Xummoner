@@ -1,66 +1,61 @@
-# Zummoner: The Zsh Spellbook
 
+# Zummoner: ✨ The Zsh Spellbook ✨
 
-## Invoke the Power of the Command Line with a Whisper
+**Invoke the power of the command line with a whisper!**
 
-Are you a seasoned sorcerer of the shell, or a fledgling apprentice seeking to master the arcane arts of Linux?  Do you find yourself weary of reciting lengthy incantations (commands) for even the simplest of tasks?  Then *Zummoner* is the grimoire you've been waiting for.
+Tired of remembering complex commands? 🧙‍♂️ Zummoner is a Zsh plugin that *summons* the right command for you, using the magic of a Large Language Model (LLM). Just describe what you want to do, and Zummoner does the rest!
 
-Zummoner is a Zsh plugin that allows you to *summon* the correct command for your task with a mere phrase.  Describe what you wish to accomplish, and Zummoner will consult its ancient knowledge (a Large Language Model) to conjure the precise spell (command) needed.
+## Features - The Enchantments 🪄
 
-## Features - The Enchantments Within
+* **Command Conjuration:** Describe your task in plain English, and Zummoner generates the command. ✨
+* **System Aware:** Knows your system (`uname -a`) and user for tailored spells. 🤖
+* **Modern Magic:** Prefers modern tools like `homectl`, `ip`, `systemctl`, and `journalctl`. 🚀
+* **Safety First:** Commands are vetted for reliability (but *always* review before running!). 🛡️
+* **Customizable LLM:** Pick your favorite LLM model! 🧠
+* **Seamless Integration:** Works directly within your Zsh shell. 🐚
 
-* **Command Conjuration:**  Simply type your desired task in natural language, and Zummoner will generate the corresponding command.
-* **System Awareness:** Zummoner understands the nature of your realm (system) by querying `uname -a` and adapts its spells accordingly. It also knows who *you* are, the current user.
-* **Modern Arcana:**  Zummoner favors the latest and most potent spells – `homectl` over `adduser`, `ip` over `ifconfig`, `systemctl` and `journalctl` for system management.
-* **Safety First:**  The spells Zummoner casts are carefully vetted to avoid unintended consequences. It prioritizes safe and reliable commands.
-* **Adaptable to Your Lore:** Zummoner can be configured to use your preferred LLM model.
-* **Seamless Integration:** Zummoner integrates directly into your Zsh shell, becoming a natural extension of your command-line mastery.
+## Installation - Binding the Spirit 🔗
 
-## Installation - Binding the Spirit to Your Shell
-
-To bind the spirit of Zummoner to your Zsh shell, follow these steps:
-
-1. **Clone the Repository:**  Venture into the digital ether and retrieve the Zummoner grimoire from its repository:
+1. **Clone the Repository:**
 
    ```bash
    git clone https://github.com/day50-dev/zummoner.git ~/.zsh/plugins/zummoner
    ```
 
-2. **Activate the Plugin:**  Open your `.zshrc` file and add `zummoner` to the `plugins` array:
+2. **Activate the Plugin:** Add `zummoner` to your `.zshrc` `plugins` array:
 
    ```zsh
    plugins=(... zummoner)
    ```
 
-3. **Recharge Your Shell:**  Refresh your Zsh shell to imbue it with Zummoner's power:
+3. **Reload Your Shell:**
 
    ```bash
    source ~/.zshrc
    ```
 
-4. **Bind the Key:** Zummoner is bound to `^Xx` (Ctrl+x, then x) by default. If this keybinding is already in use, you will need to rebind it manually.  The plugin will warn you if this is the case.
+4. **Keybinding:**  Zummoner uses `^Xx` (Ctrl+x, then x) by default.  It'll let you know if that key is already taken!
 
-## Usage - Uttering the Incantation
+## Usage - Uttering the Incantation 🗣️
 
-1.  Press `^Xx` (Ctrl+x, then x). This will open Zummoner, awaiting your command.
-2.  Type a description of the task you wish to perform. For example: "list all files in the current directory sorted by size".
-3.  Zummoner will consult its knowledge and present you with the corresponding command.
-4.  Press Enter to execute the command.
+1. Type what you want to do (e.g., "list all files in the current directory sorted by size").
+2. Press `^Xx`.
+3. Zummoner will show the command!
+4. Press Enter to execute. 💥
 
-## Configuration - Customizing the Ritual
+## Caveats - A Little Magic Caution ⚠️
 
-* **LLM Model:**  By default, Zummoner will attempt to use a default LLM model. You can specify a different model by creating a file named `default_model.txt` in the `~/.config/io.datasette.llm/` directory and placing the model name within it.  Ensure the directory exists.
-
-## Caveats - The Limits of Magic
-
-* **LLM Dependency:** Zummoner relies on a Large Language Model to function.  Ensure you have a compatible LLM setup and access.
-* **Network Connection:**  An active network connection is required to communicate with the LLM.
-* **Command Safety:** While Zummoner strives to generate safe commands, always review the generated command before execution, especially if it involves `sudo`.  Magic can be unpredictable!
-* **System Compatibility:**  Zummoner attempts to generate commands compatible with your system, but variations in Linux distributions may require adjustments.
+* **LLM Required:** Zummoner needs access to [simon w's llm](https://github.com/simonw/llm).
+* **Network Connection:**  Requires internet access to reach the LLM.
+* **Review Commands:** Always check the generated command, *especially* if it uses `sudo`!
+* **System Differences:** Commands may need tweaking depending on your Linux distribution. 
 
 
 
-## Contribute - Add to the Grimoire
+## Contribute - Expand the Grimoire 📚
 
-We welcome contributions from fellow sorcerers!  Feel free to submit pull requests to enhance Zummoner's knowledge and capabilities.  Let us together expand the power of the command line!
+Help us make Zummoner even more powerful! Submit pull requests to add new spells and features. Let's build the ultimate command-line toolbox! 💪
+
+
+
 
