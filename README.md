@@ -56,7 +56,7 @@ You cann zplug, zinit, zgen it ... it's the right format orrrr manually:
 
 ## The future!
 
-This is a prototype [for this](https://news.ycombinator.com/item?id=44112949):
+This project is a prototype [for something much more ambitious](https://news.ycombinator.com/item?id=44112949):
 
 <blockquote>
  My next step is recursion and composability. I want to be able to do things contextualized. Stuff like this:
@@ -88,3 +88,5 @@ Then if you want to move from terraform to opentofu or whatever, who cares ... y
 
 It's kinda like PHP. You just go along like normal and occasionally break form for the special metalanguage whenever your hit a point of contextual variance
 </blockquote>
+
+It's all part of DAY50. Follow us, we're starting to cook!
