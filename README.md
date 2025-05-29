@@ -18,6 +18,7 @@ Tired of remembering complex commands? 🧙‍♂️ Zummoner is a Zsh plugin th
 * **Seamless Integration:** Works directly within your Zsh shell. 🐚
 
 ## Installation - Binding the Spirit 🔗
+You cann zplug, zinit, zgen it ... it's the right format orrrr manually:
 
 1. **Clone the Repository:**
 
