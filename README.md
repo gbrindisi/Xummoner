@@ -54,12 +54,37 @@ You cann zplug, zinit, zgen it ... it's the right format orrrr manually:
 * **Review Commands:** Always check the generated command, *especially* if it uses `sudo`!
 * **System Differences:** Commands may need tweaking depending on your Linux distribution. 
 
+## The future!
 
+This is a prototype [for this](https://news.ycombinator.com/item?id=44112949):
 
-## Contribute - Expand the Grimoire 📚
+<blockquote>
+ My next step is recursion and composability. I want to be able to do things contextualized. Stuff like this:
 
-Help us make Zummoner even more powerful! Submit pull requests to add new spells and features. Let's build the ultimate command-line toolbox! 💪
+  $ echo PUBLIC_KEY=(( get the users public key pertaining to the private key for this repo )) >> .env
+or some other contextually complex thing that is actually fairly simple, just tedious to code. Then I want that <as the code> so people collectively program and revise stuff <at that level as the language>.
+ Then you can do this through composability like so:
 
+ with ((find the variable store for this repo by looking in the .gitignore)) as m:
+      ((write in the format of m))SSH_PUBLICKEY=(( get the users public key pertaining to the private key for this repo ))
+      
+or even recursively:
+    (( 
+      (( 
+        ((rsync, rclone, or similar)) with compression 
+      ))  
+        $HOME exclude ((find directories with secrets))         
+        ((read the backup.md and find the server)) 
+        ((make sure it goes to the right path))
+    ));
+it's not a fully formed syntax yet but then people will be able to do something like:
+    $ llm-compile --format terraform --context my_infra script.llm > some_code.tf
+and compile publicly shared snippets as specific to their context and you get abstract infra management at a fractional complexity.
+It's basically GCC's RTL but for LLMs.
 
+The point of this approach is your building blocks remain fairly atomic simple dumb things that even a 1b model can reliably handle - kinda like the guarantee of the RTL.
 
+Then if you want to move from terraform to opentofu or whatever, who cares ... your stuff is in the llm metalanguage ... it's just a different compile target.
 
+It's kinda like PHP. You just go along like normal and occasionally break form for the special metalanguage whenever your hit a point of contextual variance
+</blockquote>
