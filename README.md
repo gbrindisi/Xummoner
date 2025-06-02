@@ -20,25 +20,14 @@ Tired of remembering complex commands? 🧙‍♂️ Zummoner is a Zsh plugin th
 ## Installation - Binding the Spirit 🔗
 You cann zplug, zinit, zgen it ... it's the right format orrrr manually:
 
-1. **Clone the Repository:**
-
    ```bash
-   git clone https://github.com/day50-dev/zummoner.git $ZSH_CUSTOM/plugins/zummoner
+   git clone https://github.com/day50-dev/zummoner.git $HOME/.local/zummoner
+   echo source \$HOME/.local/zummoner/zummoner.zsh >> $HOME/.zshrc
+   source $HOME/.zshrc
+   
    ```
 
-2. **Activate the Plugin:** Add `zummoner` to your `.zshrc` `plugins` array:
-
-   ```zsh
-   plugins=(... zummoner)
-   ```
-
-3. **Reload Your Shell:**
-
-   ```bash
-   source ~/.zshrc
-   ```
-
-4. **Keybinding:**  Zummoner uses `^Xx` (Ctrl+x, then x) by default.  It'll let you know if that key is already taken!
+**Keybinding:**  Zummoner uses `^Xx` (Ctrl+x, then x) by default.  It'll let you know if that key is already taken!
 
 ## Usage - Uttering the Incantation 🗣️
 
@@ -56,37 +45,4 @@ You cann zplug, zinit, zgen it ... it's the right format orrrr manually:
 
 ## The future!
 
-This project is a prototype [for something much more ambitious](https://news.ycombinator.com/item?id=44112949):
-
-<blockquote>
- My next step is recursion and composability. I want to be able to do things contextualized. Stuff like this:
-
-  $ echo PUBLIC_KEY=(( get the users public key pertaining to the private key for this repo )) >> .env
-or some other contextually complex thing that is actually fairly simple, just tedious to code. Then I want that <as the code> so people collectively program and revise stuff <at that level as the language>.
- Then you can do this through composability like so:
-
- with ((find the variable store for this repo by looking in the .gitignore)) as m:
-      ((write in the format of m))SSH_PUBLICKEY=(( get the users public key pertaining to the private key for this repo ))
-      
-or even recursively:
-    (( 
-      (( 
-        ((rsync, rclone, or similar)) with compression 
-      ))  
-        $HOME exclude ((find directories with secrets))         
-        ((read the backup.md and find the server)) 
-        ((make sure it goes to the right path))
-    ));
-it's not a fully formed syntax yet but then people will be able to do something like:
-    $ llm-compile --format terraform --context my_infra script.llm > some_code.tf
-and compile publicly shared snippets as specific to their context and you get abstract infra management at a fractional complexity.
-It's basically GCC's RTL but for LLMs.
-
-The point of this approach is your building blocks remain fairly atomic simple dumb things that even a 1b model can reliably handle - kinda like the guarantee of the RTL.
-
-Then if you want to move from terraform to opentofu or whatever, who cares ... your stuff is in the llm metalanguage ... it's just a different compile target.
-
-It's kinda like PHP. You just go along like normal and occasionally break form for the special metalanguage whenever your hit a point of contextual variance
-</blockquote>
-
-It's all part of DAY50. Follow us, we're starting to cook!
+This project was a prototype [for something much more ambitious](https://news.ycombinator.com/item?id=44112949) of what is now called [ono](https://onolang.com/).
