@@ -23,7 +23,7 @@ Tired of remembering complex commands? 🧙‍♂️ Xummoner is a Zsh plugin th
 You cann zplug, zinit, zgen it ... it's the right format orrrr manually:
 
    ```bash
-   git clone https://github.com/day50-dev/xummoner.git $HOME/.local/xummoner
+   git clone https://github.com/gbrindisi/xummoner.git $HOME/.local/xummoner
    echo source \$HOME/.local/xummoner/xummoner.zsh >> $HOME/.zshrc
    source $HOME/.zshrc
    
